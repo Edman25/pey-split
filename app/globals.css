@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+/* Tokens de color. Claro por defecto; oscuro según el sistema. */
+:root {
+  --fondo: #f6f4ef;
+  --superficie: #ffffff;
+  --texto: #1c1917;
+  --suave: #57534e;
+  --borde: #e7e2d9;
+  --pagado: #0f766e;
+  --pagado-suave: #ccfbf1;
+  --reservado: #b45309;
+  --reservado-suave: #fde9c8;
+  --vencido: #a8a29e;
+  --error: #b91c1c;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fondo: #12110f;
+    --superficie: #1c1a17;
+    --texto: #f5f5f4;
+    --suave: #a8a29e;
+    --borde: #34302a;
+    --pagado: #2dd4bf;
+    --pagado-suave: #134e4a;
+    --reservado: #fbbf24;
+    --reservado-suave: #4a3510;
+    --vencido: #78716c;
+    --error: #f87171;
+  }
+}
+
+@theme inline {
+  --color-fondo: var(--fondo);
+  --color-superficie: var(--superficie);
+  --color-texto: var(--texto);
+  --color-suave: var(--suave);
+  --color-borde: var(--borde);
+  --color-pagado: var(--pagado);
+  --color-pagado-suave: var(--pagado-suave);
+  --color-reservado: var(--reservado);
+  --color-reservado-suave: var(--reservado-suave);
+  --color-vencido: var(--vencido);
+  --color-error: var(--error);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--fondo);
+  color: var(--texto);
+}
