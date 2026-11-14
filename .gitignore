@@ -1,5 +1,7 @@
 # Variables de entorno y secretos (incluye .env, .env.local, .env.txt, etc.)
 .env*
+# Excepción: plantilla solo con nombres de variables, sin valores
+!.env.example
 
 # Datos
 *.csv
@@ -12,3 +14,25 @@
 !tsconfig.json
 !components.json
 !vercel.json
+# (test/fixtures/*.json queda ignorado a propósito: son webhooks reales con datos del pagador)
+
+# Dependencias
+/node_modules
+
+# Next.js
+/.next/
+/out/
+/build
+next-env.d.ts
+*.tsbuildinfo
+
+# Vercel
+.vercel
+
+# Pruebas
+/coverage
+
+# Varios
+.DS_Store
+*.pem
+npm-debug.log*
