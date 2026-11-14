@@ -6,6 +6,8 @@ Prototipo para el hackatón de pey / CoDi. El restaurante crea la cuenta (por ej
 
 **Estado:** prototipo funcional, desplegado en Vercel y probado de punta a punta con cobros reales de $0.01.
 
+**Demo (modo simulado, sin dinero real):** https://pey-split-tau.vercel.app. Ver [cómo probarla](#probar-la-demo).
+
 > ⚠️ Con `PEY_MODE=real` cada pago mueve dinero de verdad. Para demos públicas usa `PEY_MODE=simulado`.
 
 ---
@@ -27,6 +29,26 @@ Prototipo para el hackatón de pey / CoDi. El restaurante crea la cuenta (por ej
 3. Al tocar **"Pagar con CoDi"**, la app **aparta** ese monto por 7 minutos y crea un **link de pago de pey**. El comensal paga en el checkout de pey con la app de su banco.
 4. pey lo regresa al lobby y aparece "Confirmando tu pago…". Cuando llega el webhook de pey, cambia solo a "¡Gracias!".
 5. Al completar el total, la caja y todos los celulares muestran **"¡Cuenta liquidada!"**.
+
+### Probar la demo
+
+La demo pública corre en **modo simulado**: no se cobra nada y el "checkout" es una página de la app con un botón para confirmar el pago.
+
+**Con dos o más dispositivos** (lo ideal)
+1. En una laptop o tablet abre https://pey-split-tau.vercel.app y crea una cuenta, por ejemplo "Mesa 4" por $600. Se abre la **vista de caja** con el QR.
+2. Escanea el QR con un celular. En el lobby escribe un nombre, toca **"Partes iguales: 3"** ($200) y luego **"Pagar $200.00 con CoDi"**.
+3. En la página **"Pago simulado · sin dinero real"** toca **"Pagar $200.00 (simulado)"**. Regresas al lobby con **"¡Gracias!"**, y la caja sube a 33% sin recargar.
+4. Repite con otros celulares, o desde el mismo con **"Pagar otra parte"**, hasta completar el total. Todas las pantallas muestran **"¡Cuenta liquidada!"**.
+
+**Con una sola computadora**
+Abre la caja en una pestaña y el link que aparece debajo del QR en otra; es el lobby. Paga desde la pestaña del lobby y mira la caja actualizarse sola.
+
+**Qué más puedes probar**
+- **"Cancelar y volver"** en el pago simulado: el lobby muestra "Tu pago está pendiente", el tiempo restante y "Volver al pago".
+- **Dos personas a la vez:** desde dos celulares, toca "Todo lo que falta" en ambos y paga casi al mismo tiempo. El segundo recibe "Alguien se adelantó: solo quedan $X" y su monto se ajusta.
+- **Reserva vencida:** aparta un monto y no pagues. A los 7 minutos aparece como "Venció" y el monto vuelve a estar disponible.
+
+> Lo que escribas en la demo es visible para cualquiera y puede borrarse en cualquier momento. No uses datos personales reales.
 
 ### Reglas que garantiza la base de datos
 - **Nunca se aparta más de lo que falta.** Si dos comensales intentan apartar a la vez, el segundo recibe "Alguien se adelantó: solo quedan $X" y su monto se ajusta.
