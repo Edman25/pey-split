@@ -1,0 +1,14 @@
+# Variables de entorno y secretos (incluye .env, .env.local, .env.txt, etc.)
+.env*
+
+# Datos
+*.csv
+
+# JSON
+*.json
+# Excepciones: archivos de configuración que el proyecto Next.js necesita en el repo
+!package.json
+!package-lock.json
+!tsconfig.json
+!components.json
+!vercel.json
