@@ -199,10 +199,3 @@ La prueba de punta a punta contra Supabase crea datos reales y los borra al fina
 
 ---
 
-## Limitaciones conocidas
-
-- **Sin autenticación ni límite de peticiones:** cualquiera con la URL puede crear cuentas o apartar montos.
-- **Lectura pública:** con la clave publishable se pueden leer todas las cuentas por la API. Solo se guardan nombres de pila y montos.
-- **Pagos de más:** el link de pey no vence ni se puede cancelar. Si alguien paga después de que venció su reserva, el pago se acepta y la cuenta puede quedar pagada de más.
-- **Pagos marcados por cualquiera en modo simulado:** con `PEY_MODE=simulado`, cualquiera con un link simulado puede marcarlo como pagado. Es solo para demo.
-- **Nombre de pila:** se guarda solo la primera palabra, así que un apodo como "El Chino" queda como "El".
